@@ -30,10 +30,10 @@ public class Pessoa {
     private Endereco endereco;
 
     @ManyToOne
+    @JoinColumn(name = "id_agencia")
     private Agencia agencia;
 
     private boolean ativo;
-
 
     public Pessoa(Long id, String nome, String cpf, String celular, String email, Endereco endereco, Agencia agencia, boolean ativo) {
         this.id = id;
@@ -45,5 +45,4 @@ public class Pessoa {
         this.agencia = agencia;
         this.ativo = ativo;
     }
-
 }

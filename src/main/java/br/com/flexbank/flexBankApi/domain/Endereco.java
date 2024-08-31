@@ -28,8 +28,7 @@ public class Endereco {
     private String localidade;
 
 
-    public Endereco (long id, String cep, String logradouro, String numero, String bairro, String localidade){
-        this.id = id;
+    public Endereco (String cep, String logradouro, String numero, String bairro, String localidade){
         this.cep = cep;
         this.logradouro = logradouro;
         this.numero = numero;

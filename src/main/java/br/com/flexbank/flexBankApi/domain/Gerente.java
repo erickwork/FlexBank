@@ -12,21 +12,12 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "gerente")
-public class Gerente extends Pessoa{
-
-    @Id
-    @Column(name = "id")
-    private Long idPessoa;
+public class Gerente extends Pessoa {
 
     private Date dataContratacao;
 
-    @ManyToOne
-    private Agencia agencia;
-
     public Gerente(Long id, String nome, String cpf, String celular, String email, Endereco endereco, Agencia agencia, boolean ativo, Date dataContratacao) {
         super(id, nome, cpf, celular, email, endereco, agencia, ativo);
-
         this.dataContratacao = dataContratacao;
     }
-
 }
