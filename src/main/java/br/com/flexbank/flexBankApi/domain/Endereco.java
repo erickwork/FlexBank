@@ -1,5 +1,6 @@
 package br.com.flexbank.flexBankApi.domain;
 
+import br.com.flexbank.flexBankApi.dto.CadastrarEndereco;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,4 +37,11 @@ public class Endereco {
         this.localidade = localidade;
     }
 
+    public Endereco(CadastrarEndereco cadastrarEndereco) {
+        this.cep = cadastrarEndereco.cep();
+        this.logradouro = cadastrarEndereco.logradouro();
+        this.numero = cadastrarEndereco.numero();
+        this.bairro = cadastrarEndereco.bairro();
+        this.localidade = cadastrarEndereco.localidade();
+    }
 }
