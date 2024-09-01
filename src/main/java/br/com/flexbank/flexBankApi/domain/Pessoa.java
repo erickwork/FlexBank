@@ -1,14 +1,20 @@
 package br.com.flexbank.flexBankApi.domain;
 
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "pessoa")
 public class Pessoa {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
@@ -20,13 +26,14 @@ public class Pessoa {
     private String email;
 
     @OneToOne
+    @JoinColumn(name = "id_endereco")
     private Endereco endereco;
 
     @ManyToOne
+    @JoinColumn(name = "id_agencia")
     private Agencia agencia;
 
     private boolean ativo;
-
 
     public Pessoa(Long id, String nome, String cpf, String celular, String email, Endereco endereco, Agencia agencia, boolean ativo) {
         this.id = id;
@@ -38,5 +45,4 @@ public class Pessoa {
         this.agencia = agencia;
         this.ativo = ativo;
     }
-
 }
